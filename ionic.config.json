@@ -1,0 +1,7 @@
+{
+  "name": "TravelDiary",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

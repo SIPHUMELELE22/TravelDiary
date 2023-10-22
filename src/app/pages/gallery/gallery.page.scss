@@ -1,0 +1,7 @@
+.image-container {
+    width: calc(33.33% - 10px); /* 33.33% for 3 columns with some margin */
+    margin: 5px; /* Add margin between images */
+    display: inline-block;
+    vertical-align: top;
+    box-sizing: border-box;
+  }

@@ -1,0 +1,70 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Settings</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="dark">
+        <ion-icon slot="icon-only" ios="settings" md="settings"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list-header>Appearance</ion-list-header>
+  <ion-list>
+    <ion-item>
+      <ion-label>Dark Mode</ion-label>
+      <ion-toggle [checked]="true"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <ion-list-header>Photo & Video Capture</ion-list-header>
+  <ion-list>
+    <ion-item>
+      <ion-label>Save to Camera Roll</ion-label>
+      <ion-toggle [checked]="true"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <ion-list-header>Notifications</ion-list-header>
+  <ion-list>
+    <ion-item>
+      <ion-label>Email Notifications</ion-label>
+      <ion-toggle [checked]="true"></ion-toggle>
+    </ion-item>
+        <ion-item>
+      <ion-label>App Notifications</ion-label>
+      <ion-toggle [checked]="false"></ion-toggle>
+    </ion-item>
+  </ion-list>
+
+  <ion-list-header>Location</ion-list-header>
+  <ion-list>
+    <ion-item>
+      <ion-label>Use your loccation</ion-label>
+      <ion-toggle [checked]="true"></ion-toggle>
+    </ion-item>
+        <ion-item>
+      <ion-label>App Notifications</ion-label>
+      <ion-toggle [checked]="false"></ion-toggle>
+    </ion-item>
+  </ion-list>
+  
+  <ion-list-header>Language</ion-list-header>
+  <ion-list>
+    <ion-item>
+      <ion-select label="Language">
+        <ion-select-option value="english">English</ion-select-option>
+        <ion-select-option value="spanish">Spanish</ion-select-option>
+        <ion-select-option value="german">German</ion-select-option>
+        <ion-select-option value="italian">Italian</ion-select-option>
+        <ion-select-option value="french">French</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

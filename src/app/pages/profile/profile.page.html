@@ -1,0 +1,50 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Profile</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="dark">
+        <ion-icon slot="icon-only" ios="person-circle-outline" md="person-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-list-header>Personalization</ion-list-header>
+  <ion-list [inset]="true">
+      <ion-item>
+        <ion-input placeholder="FIRST NAME"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="LAST NAME"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button expand="block" size="medium" slot="end" style="max-width: 210px;">
+          <ion-icon name="save" slot="start"></ion-icon>Save
+        </ion-button>
+      </ion-item>
+    </ion-list>
+
+    <ion-list-header>Email Settings</ion-list-header>
+    <ion-list [inset]="true">
+      <ion-item>
+        <ion-toggle aria-label="success toggle" color="success" [checked]="true">Subscribe to Newsletter</ion-toggle><br /><br />
+      </ion-item>
+    </ion-list>
+    <ion-list [inset]="true">
+      <ion-item>
+        <ion-input placeholder="NEW EMAIL"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="CONFIRM EMAIL"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-button expand="block" size="medium" slot="end" style="max-width: 210px;">
+          <ion-icon name="save" slot="start"></ion-icon>Save
+        </ion-button>
+      </ion-item>
+    </ion-list>
+</ion-content>
