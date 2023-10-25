@@ -1,0 +1,24 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title>News</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="dark">
+        <ion-icon slot="icon-only" ios="newspaper" md="newspaper"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card ngFor="let articles of articles">
+    <ion-img [src]= "articles.urlToImage"></ion-img>
+    <ion-card-header>
+      <ion-card-subtitle>{{articles.publishedAt | date}}</ion-card-subtitle>
+      <ion-card-title>{{ articles.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>{{articles.description}}</ion-card-content>
+  </ion-card>
+</ion-content>

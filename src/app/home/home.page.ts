@@ -34,6 +34,7 @@ takePicture = async () => {
 addPhotoToGallery() {
   this.photoService.addNewToGallery();
 }
+
 ngOnInit() {
 }
 
