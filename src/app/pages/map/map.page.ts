@@ -12,7 +12,17 @@ export class MapPage implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.loadMap();
   }
+
+  ngInintAfterView()
+  {
+
+  }
+
+  /**
+   * Map Method
+   */
   loadMap() {
     const map = L.map('map').setView([-29.85923, 31.03276]);
 

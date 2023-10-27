@@ -12,14 +12,21 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card ngFor="let articles of articles">
-    <ion-img [src]= "articles.urlToImage"></ion-img>
-    <ion-card-header>
-      <ion-card-subtitle>{{articles.publishedAt | date}}</ion-card-subtitle>
-      <ion-card-title>{{ articles.title }}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>{{articles.description}}</ion-card-content>
-  </ion-card>
+<ion-content [fullscreen]="true">
+  <ion-list-header>For You</ion-list-header>
+  <ion-list>
+    <ion-row *ngFor="let article of popularNews">
+      <ion-col>
+        <ion-thumbnail>
+          <img [src] ="article.urlToImage ?? '../assets/icon/favicon.png'" />
+        </ion-thumbnail>
+      </ion-col>
+      <ion-col size="8">
+        <ion-label>
+        {{article?.author ?? 'No Authour Name'}}
+        </ion-label>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+ 
 </ion-content>
-

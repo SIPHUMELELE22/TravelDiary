@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Plugin} from '@capacitor/core/types/definitions';
 
 @Component({
   selector: 'app-root',

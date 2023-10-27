@@ -8,17 +8,20 @@ import { NewsFeedService } from 'src/app/news-feed.service';
 })
 export class NewsPage implements OnInit {
 
-  articles: any;
+ selectedCategory = "general"
+ popularNews:any = [];
 
-  constructor( private newsService: NewsFeedService) { }
+ article: any;
 
-  loadNews(){
-    this.newsService.getNews("top-headlines?country=us").subscribe(news =>{
-      this.articles = news;
-      console.log(this.articles);
-    });
-    this.loadNews()
-  }
+  constructor(private newsFeedService: NewsFeedService) {
+    newsFeedService.getPopularNews().subscribe((results) => {
+    console.log(results.articles);
+    this.popularNews = results.articles;
+    })
+    newsFeedService.getArticleByCategory(this.selectedCategory).subscribe((results) => {
+      console.log(results);
+      })
+   }
 
   ngOnInit() {
   }
