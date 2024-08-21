@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./settings.page.scss'],
 })
 export class SettingsPage implements OnInit {
-  
+
+  pushNotifications = true;
+  shareLocation = true;
+  darkMode = false;
+  saveToGallery = true;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  logOut() {
+
   }
 
 }

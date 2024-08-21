@@ -9,11 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GalleryPage implements OnInit {
 
-  
   images = [
-    { url: 'https://i.postimg.cc/ncvD7x7P/pexels-ann-h-1765033.jpg', caption: 'Beautiful landscape' },
-    { url: 'https://i.postimg.cc/ncvD7x7P/pexels-ann-h-1765033.jpg', caption: 'Exploring the city' },
-    { url: 'https://i.postimg.cc/ncvD7x7P/pexels-ann-h-1765033.jpg.jpg', caption: 'Scenic views' },
+    { url: 'https://i.postimg.cc/dtxcZXhZ/pexels-caroline-cagnin-2007395.jpg', caption: 'Views' }
   ];
 
   constructor() { }

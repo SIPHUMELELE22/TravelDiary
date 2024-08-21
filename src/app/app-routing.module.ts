@@ -5,13 +5,14 @@ const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./pages/home/home.module').then( m => m.HomePageModule),
-    canActivate: AuthGuard
+    //canActivate: AuthGuard
   },
   {
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
   },
+ 
   {
     path: 'profile',
     loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
@@ -47,6 +48,18 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./auth/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'news-details',
+    loadChildren: () => import('./pages/news-details/news-details.module').then( m => m.NewsDetailsPageModule)
+  },
+  {
+    path: 'itinerary',
+    loadChildren: () => import('./pages/itinerary/itinerary.module').then( m => m.ItineraryPageModule)
+  },
+  {
+    path: 'notification-details',
+    loadChildren: () => import('./pages/notification-details/notification-details.module').then( m => m.NotificationDetailsPageModule)
   }
 ];
 

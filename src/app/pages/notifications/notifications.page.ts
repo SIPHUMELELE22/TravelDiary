@@ -1,4 +1,6 @@
+import { TitleCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-notifications',
@@ -6,16 +8,30 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./notifications.page.scss'],
 })
 export class NotificationsPage implements OnInit {
-  notifications = [
-    { badge: 'Reminder', message: "Don't forget to update your journal." },
-    { badge: 'Journal Reminder', message: 'Capture your travel memories in your diary.' },
-    { badge: 'Travel Update', message: 'Explore a new destination: Venice, Italy!' },
-    { badge: 'Adventure Awaits', message: 'Plan your next adventure and make it unforgettable.' },
-  { badge: 'Recommendation', message: 'New travel recommendation added.' },
-];
+  notifications: any[]; // Replace with your actual notification data.
 
-
-  constructor() { }
+  constructor(private router:Router) {
+    this.notifications = [
+      {
+        title: 'New Message',
+        message: 'You have a new message.',
+        icon: 'mail-outline',
+      },
+      {
+        title: 'Reminder',
+        message: "Don't forget to update your journal.",
+        icon: 'alarm-outline',
+      },
+      {
+        title: 'Recommendation',
+        message: 'New travel recommendation added.',
+        icon: 'star-outline',
+      }
+    ];
+  }
+  readNotification(){
+    this.router.navigate(['/notification-details'])
+  }
 
   ngOnInit() {
   }

@@ -6,7 +6,9 @@ import { IonicModule } from '@ionic/angular';
 
 import { NewsPageRoutingModule } from './news-routing.module';
 
+
 import { NewsPage } from './news.page';
+import { Router } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -14,6 +16,7 @@ import { NewsPage } from './news.page';
     FormsModule,
     IonicModule,
     NewsPageRoutingModule
+
   ],
   declarations: [NewsPage]
 })

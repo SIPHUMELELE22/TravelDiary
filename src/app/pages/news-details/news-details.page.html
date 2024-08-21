@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="news"></ion-back-button>
+    </ion-buttons>
+    <ion-title>News By - {{source}} </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<div style="height: 400px; margin: 5px; border-radius: 5px; background-position: center; background-repeat: no-repeat; position: relative; object-fit: cover;" [style.background]="'linear-gradient(rgb(34 35 41 /10%), rgba(34 35 41 /90%)),url(' +( image ?? '../assets/icon/favicon.png') + ')'">
+  <h3 style="margin: 15px; position: absolute; bottom: 0; color: #fff;"> {{author  ?? 'No Authour Name'}} </h3>
+</div>
+<div style="margin: 16px;">
+  <ion-label style="margin: 5px;">{{title}}</ion-label>
+  <ion-item>
+    <ion-label slot="end">
+      <p>{{publishedAt | date}}</p>
+    </ion-label>
+  </ion-item>
+
+  <ion-item lines="none">
+    <ion-label class="ion-text-wrap" style="font-weight: 300;">
+      {{description ?? 'No Description'}}
+    </ion-label>
+  </ion-item>
+
+  <ion-item class="links">
+    <ng-container *ngIf="content; else noContent">
+      <p *ngIf="showFullContent; else shortContent">
+        {{content}}
+      </p>
+      <ng-template #shortContent>{{content.slice(0, 200)}}{{content.length > 200 ? '...' : ''}}</ng-template>
+    </ng-container>
+    <ng-template #noContent>
+      <p>No content</p>
+    </ng-template>
+  </ion-item>
+  
+
+  <ion-item lines="none">
+  <ion-item lines="none">
+    <ion-button fill="clear">
+      <ion-icon name="heart-outline" (click)="like()"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear">
+      <ion-icon name="share-outline" (click)="share()"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear">
+      <ion-icon name="bookmark-outline" (click)="bookmark()"></ion-icon>
+    </ion-button>
+  </ion-item>
+  <ion-button fill="outline" color="secondary" slot="end" (click)="showContent()">
+    {{showFullContent ? 'Show Less' : 'Read More'}}
+  </ion-button>
+</ion-item>
+</div>
+</ion-content>

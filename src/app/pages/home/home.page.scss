@@ -2,7 +2,7 @@
   text-align: center;
 }
 ion-modal {
-  --height: 55%;
+  --height: 65%;
   --border-radius: 16px;
   --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
@@ -18,4 +18,19 @@ ion-modal ion-toolbar {
 }
 ion-toolbar ion-buttons {
   --color: white;
+}
+ion-item{
+  --background: #f1f1f1;
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+swiper-slide{
+  img{
+    height: 100%;
+    width: 100%;
+  }
+}
+
+swiper-slide.swiper-images-container {
+  max-height: 9rem;
 }

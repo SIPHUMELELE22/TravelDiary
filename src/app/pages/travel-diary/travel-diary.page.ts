@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Camera } from '@capacitor/camera';
+
 
 @Component({
   selector: 'app-travel-diary',
@@ -6,15 +8,42 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./travel-diary.page.scss'],
 })
 export class TravelDiaryPage implements OnInit {
-  isModalOpen = false;
 
-  setOpen(isOpen: boolean){
-    this.isModalOpen = isOpen;
-  }
+  previousEntries: { date: Date; content: string }[] = [];
+  
+  diaryEntry: string = '';
+  photoData: string = '';
+  uploadPhoto: any;
 
-  constructor() { }
+  constructor() {
+
+    this.fetchPreviousEntries();
+   }
 
   ngOnInit() {
+  }
+
+  ploadPhoto(event: any) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.photoData = reader.result as string;
+    };
+    reader.readAsDataURL(file);
+  }
+
+  saveDiaryEntry() {
+    const entry = {
+      text: this.diaryEntry,
+      photo: this.photoData,
+      date: new Date().toISOString(),
+    };
+  }
+  fetchPreviousEntries() {
+
+    this.previousEntries = [
+
+    ];
   }
 
 }

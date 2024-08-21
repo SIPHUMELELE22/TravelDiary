@@ -50,8 +50,7 @@
           </ion-item>
         </ion-menu-toggle>
       </ion-list>
-      <ion-button id="present-alert"><ion-icon name="log-out" slot="start"></ion-icon> Log Out</ion-button>
-      <ion-alert trigger="present-alert" class="custom-alert" header="Are you sure?" [buttons]="alertButtons"></ion-alert>
+      <ion-button><ion-icon name="log-out" slot="start" (click)="logout()"></ion-icon> Log Out</ion-button>
     </ion-content>
   </ion-menu>
   <ion-router-outlet id="main"></ion-router-outlet>

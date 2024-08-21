@@ -13,10 +13,14 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list [inset]="true">
-    <ion-item *ngFor="let notification of notifications">
-      <ion-badge slot="end">{{ notification.badge }}</ion-badge>
-      <br>{{ notification.message }}
+  <ion-list>
+    <ion-item (click)="readNotification()" *ngFor="let notification of notifications">
+      <ion-icon [name]="notification.icon" slot="start"></ion-icon>
+      <ion-label>
+        <h2>{{ notification.title }}</h2>
+        <p>{{ notification.message }}</p>
+      </ion-label>
     </ion-item>
   </ion-list>
-  </ion-content>
+</ion-content>
+

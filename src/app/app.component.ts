@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Plugin} from '@capacitor/core/types/definitions';
 
 @Component({
@@ -7,17 +8,9 @@ import { Plugin} from '@capacitor/core/types/definitions';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  public alertButtons = [
-    {
-      text: 'Log Out',
-      role: 'alert-button-confirm',
-    },
-    {
-      text: 'Cancel',
-      cssClass: 'alert-button-cancel',
-    },
-  ];
 
-
-  constructor() {}
+    constructor(private router: Router) {}
+  
+    logout() {
+    }
 }

@@ -7,6 +7,10 @@ import { environment } from 'src/environments/environment';
 })
 export class TodoService {
 
+  name: any;
+  email: any;
+  password: any;
+
     constructor (private http: HttpClient)
     {
 
@@ -20,9 +24,10 @@ export class TodoService {
     }
 
     // Post
+    postTodos(){
+      return this.http
 
-
-
+    }
     // DELETE
 
 }

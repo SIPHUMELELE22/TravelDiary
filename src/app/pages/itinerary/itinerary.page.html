@@ -1,0 +1,33 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="#"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Itinerary</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="dark">
+        <ion-icon slot="icon-only" name="calendar-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-list [inset]="true">
+    <ion-item>
+      <ion-label position="stacked">Date</ion-label>
+      <ion-input type="date" [(ngModel)]="itinerary.date"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">Activity</ion-label>
+      <ion-input type="text" [(ngModel)]="itinerary.activity"></ion-input>
+    </ion-item>
+    <ion-button expand="full" shape="round" (click)="addItineraryItem()">Add Activity</ion-button>
+  </ion-list>
+
+  <ion-list *ngIf="itineraryItems.length > 0">
+    <ion-item *ngFor="let item of itineraryItems">
+      <ion-label> <b>Date:</b> {{ item.date }} <br> <b>Activity:</b> {{ item.activity }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

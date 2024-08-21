@@ -13,38 +13,47 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-list-header>Personalization</ion-list-header>
-  <ion-list [inset]="true">
+  <ion-card class="user-profile">
+  <ion-card-header>
+    User Profile
+    </ion-card-header>
+    <ion-card-content>
       <ion-item>
-        <ion-input placeholder="FIRST NAME"></ion-input>
+        <ion-input placeholder=" First Name:"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-input placeholder="LAST NAME"></ion-input>
+        <ion-input placeholder="Last Name:"></ion-input>
       </ion-item>
-      <ion-item>
-        <ion-button expand="block" size="medium" slot="end" style="max-width: 210px;">
-          <ion-icon name="save" slot="start"></ion-icon>Save
-        </ion-button>
-      </ion-item>
-    </ion-list>
+    </ion-card-content>
+  </ion-card>
+  
 
-    <ion-list-header>Email Settings</ion-list-header>
-    <ion-list [inset]="true">
+  <ion-card class="account-settings">
+    <ion-card-header>
+      Account Settings
+    </ion-card-header>
+    <ion-card-content>
+      <ion-card-subtitle>Password settings</ion-card-subtitle> <br>
       <ion-item>
-        <ion-toggle aria-label="success toggle" color="success" [checked]="true">Subscribe to Newsletter</ion-toggle><br /><br />
-      </ion-item>
-    </ion-list>
-    <ion-list [inset]="true">
-      <ion-item>
-        <ion-input placeholder="NEW EMAIL"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-input placeholder="CONFIRM EMAIL"></ion-input>
+        <ion-input placeholder="Change Password:"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-button expand="block" size="medium" slot="end" style="max-width: 210px;">
-          <ion-icon name="save" slot="start"></ion-icon>Save
-        </ion-button>
+        <ion-input placeholder="Confirm Password:"></ion-input>
       </ion-item>
-    </ion-list>
+      <br>
+      <ion-card-subtitle>Email settings</ion-card-subtitle> <br>
+      <ion-item>
+        <ion-input placeholder="Change Email:"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input placeholder="Confirm Email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Subscribe to Newsletter</ion-label>
+        <ion-toggle color="success" [(ngModel)]="subscribe"></ion-toggle>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" color="secondary" (click)="logOut()">Log Out</ion-button>
 </ion-content>

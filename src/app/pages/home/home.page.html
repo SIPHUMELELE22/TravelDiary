@@ -15,9 +15,28 @@
 
 <ion-content [fullscreen]="true">
   <div class="heading">
-    <h1><strong>TravelTales</strong> - Your Personal Travel Diary!</h1>
+    <h1 style="color: cornflowerblue;"><strong>TravelTales by {{user?.name}}</strong></h1>
+    <p style="text-align: center; color: dodgerblue;">Start documenting your travel adventures</p>
   </div>
-    <ion-searchbar></ion-searchbar>
+  <ion-list>
+    <ion-item [button]="true" [routerLink]="['/itinerary']">
+      <ion-icon slot="start" name="calendar-outline"></ion-icon>
+      Plan Your Itinerary
+    </ion-item>
+
+    <ion-item [button]="true" [routerLink]="['/map']">
+      <ion-icon slot="start" name="map-outline"></ion-icon>
+      Explore Maps
+    </ion-item>
+
+    <ion-item [button]="true" [routerLink]="['/gallery']">
+      <ion-icon slot="start" name="images-outline"></ion-icon>
+      View Your Gallery
+    </ion-item>
+</ion-list>
+
+<br>
+
     <ion-button expand="block" (click)="setOpen(true)">
       <ion-icon name="book-outline" slot="end"></ion-icon> Start Today's Entry</ion-button>
     <ion-modal [isOpen]="isModalOpen">
@@ -31,103 +50,103 @@
           </ion-toolbar>
         </ion-header>
         <ion-content>
-          <ion-list [inset]="true">
-            <ion-item [button]="">
-              <ion-input placeholder="Title"></ion-input>
-            </ion-item>
-            <ion-item  [button]="">
-              <ion-textarea rows="10" placeholder="Content"></ion-textarea>
-            </ion-item>
-          </ion-list>
+          <br>
           <ion-list [inset]="true">
             <ion-item>
-              <ion-grid>
-                <ion-row>
-                  <ion-col>
-                    <ion-buttons>
-                      <ion-button (click)="addPhotoToGallery()"><ion-icon name="camera"></ion-icon></ion-button>
-                    </ion-buttons>
-                  </ion-col>
-                  <ion-col>
-                    <ion-buttons>
-                      <ion-button (click)="takePicture()"><ion-icon name="image"></ion-icon></ion-button>
-                    </ion-buttons>
-                  </ion-col>
-                  <ion-col>
-                    <ion-buttons>
-                      <ion-button><ion-icon name="location"></ion-icon></ion-button>
-                    </ion-buttons>
-                  </ion-col>
-                  <ion-col>
-                    <ion-buttons>
-                      <ion-button><ion-icon name="airplane"></ion-icon></ion-button>
-                    </ion-buttons>
-                  </ion-col>
-                  <ion-col>
-                    <ion-buttons>
-                      <ion-button><ion-icon name="bed"></ion-icon></ion-button>
-                    </ion-buttons>
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
+              <ion-input label="Title"></ion-input>
             </ion-item>
-          </ion-list>
-          <ion-list [inset]="true">
             <ion-item>
+              <ion-input type="date" [(ngModel)]="diary.date"></ion-input>
+            </ion-item>
+              <ion-item>
+                <ion-textarea rows="10" label="Content"></ion-textarea>
+              </ion-item>
+              <ion-item>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>
+                      <ion-buttons (click)="addPhotoToGallery()">
+                        <ion-button><ion-icon name="camera"></ion-icon></ion-button>
+                      </ion-buttons>
+                    </ion-col>
+                    <ion-col>
+                      <ion-buttons (click)="takePicture()">
+                        <ion-button><ion-icon name="images"></ion-icon></ion-button>
+                      </ion-buttons>
+                    </ion-col>
+                    <ion-col>
+                      <ion-buttons>
+                        <ion-button><ion-icon name="location"></ion-icon></ion-button>
+                      </ion-buttons>
+                    </ion-col>
+                    <ion-col>
+                      <ion-buttons>
+                        <ion-button><ion-icon name="bed"></ion-icon></ion-button>
+                      </ion-buttons>
+                    </ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-item>
               <ion-button expand="block" size="medium" slot="end" style="max-width: 210px;">
                 <ion-icon name="save" slot="end"></ion-icon>Save
               </ion-button>
-            </ion-item>
-          </ion-list>
+            </ion-list>
         </ion-content>
       </ng-template>
     </ion-modal>
+
+<br>
+
+    <swiper-container [pagination]="true" [pagination-clickable]="true" [autoplay]="true" [slidesPerView]="3" [spaceBetween]="10">
+        <swiper-slide *ngFor="let image of sliderImages" class="swiper-images-container">
+          <img [src]=image.image>
+        </swiper-slide>
+
+    </swiper-container>
+
+    <br>
+    
     <ion-grid>
       <ion-row>
         <ion-col>
-          <ion-button color="tertiary"> Recents</ion-button>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Quote of the day</ion-card-title>
+              <ion-card-subtitle>AUGUSTINE OF HIPPO</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              The world is a book and those who do not travel read only one page.
+            </ion-card-content>
+          </ion-card>
         </ion-col>
-        <ion-col>
-          <ion-button color="tertiary"> Popular</ion-button>
-        </ion-col>
-        <ion-col>
-          <ion-button color="tertiary"> Top Rated</ion-button>
-        </ion-col>
-      </ion-row>
+    </ion-row>
+
       <ion-row>
         <ion-col>
           <ion-card>
             <ion-card-header>
-              <ion-card-title>Quote of the day</ion-card-title>
-              <ion-card-subtitle>NORMAN VINCENT PEALE</ion-card-subtitle>
+              <ion-card-title>Weekly challenge</ion-card-title>
             </ion-card-header>
             <ion-card-content>
-              "Change your thoughts and you change your world."
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-        <ion-col>
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Quote of the day</ion-card-title>
-              <ion-card-subtitle>NORMAN VINCENT PEALE</ion-card-subtitle>
-            </ion-card-header>
-            <ion-card-content>
-              "Change your thoughts and you change your world."
-            </ion-card-content>
-          </ion-card>
-        </ion-col>
-        <ion-col>
-          <ion-card>
-            <ion-card-header>
-              <ion-card-title>Quote of the day</ion-card-title>
-              <ion-card-subtitle>NORMAN VINCENT PEALE</ion-card-subtitle>
-            </ion-card-header>
-            <ion-card-content>
-              "Change your thoughts and you change your world."
+              Make a list of your three recent accomplishments. Celebrate and acknowledge how far you have come.
             </ion-card-content>
           </ion-card>
         </ion-col>
       </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>Quote of the week</ion-card-title>
+              <ion-card-subtitle>JOHN F. KENNEDY</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>
+              As we expresss our gratitude, we must never forget that the highest apprecciation is not to utter words, 
+              but to live by them.
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+    </ion-row>
     </ion-grid>
 </ion-content>
